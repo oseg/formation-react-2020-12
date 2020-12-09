@@ -1,4 +1,0 @@
-- Repo : https://github.com/naholyr/formation-react-2020-12
-- Émargement : https://extranet-humancoders.dendreo.com/
-- Whiteboard : https://excalidraw.com/#room=b59d663c5c0d14058949,OHyUGPT4G_4VVAuO7F9C5w
-- Live Share : https://prod.liveshare.vsengsaas.visualstudio.com/join?49CED266EE7451601CB09CBFD3946AAA9A3C

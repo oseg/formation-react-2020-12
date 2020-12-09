@@ -1,0 +1,92 @@
+<body>
+  <div id="app"></div>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script>
+    const h = React.createElement
+
+    /* version classe
+    class HelloWorld extends React.Component {
+      static defaultProps = {
+        text: 'World'
+      }
+
+      render() {
+        return h('div', {
+          className: 'hello-world'
+        },
+          h('h1', {}, 'Hello'),
+          h('h2', {}, this.props.text),
+        );
+      }
+    } */
+
+    // version fonction
+    const HelloWorld = ({ text = "World" }) => {
+      console.log('HelloWorld#render');
+      const counterElement = h(Counter, { toto: 'tata' });
+      return h('div', {
+        className: 'hello-world'
+      },
+        h('h1', {}, 'Hello'),
+        h('h2', {}, text + "!"),
+        counterElement,
+        h(Counter, {}),
+      );
+    }
+
+    /* Composant "class" stateful
+    class Counter extends React.Component {
+      state = { value: 1 }
+
+      render() {
+        console.log('Counter#render')
+        return h('button', {
+          onClick: (e) => {
+            e.preventDefault();
+            // incrémenter la valeur
+            const newValue = this.state.value + 1;
+            // rafraîchir le composant (seulement celui-là)
+            this.setState({ value: newValue })
+          }
+        }, this.state.value)
+      }
+    }*/
+
+    /*
+    - 1st render
+      - state = [] (initialization)
+      - useState(1) → state = [1] → return 1
+    - click
+      - setValue(2) → state = [2]
+      - update()
+    - 2nd render
+      - state [2] (reconciliation)
+      - useState(1) → state = [2] → return 2
+    */
+    const Counter = () => {
+      // const couple = React.useState(1)
+      // const value = couple[0] // 1
+      // const setValue = couple[1] // setter
+      const [value, setValue] = React.useState(1)
+      console.log('Counter#render')
+      return h('button', {
+        onClick: (e) => {
+          e.preventDefault();
+          // incrémenter la valeur
+          const newValue = value + 1;
+          // rafraîchir le composant (seulement celui-là)
+          setValue(newValue);
+        }
+      }, value);
+    }
+
+    const mountPoint = document.getElementById('app');
+
+    const element = h(HelloWorld, {
+      text: 'Toto',
+    })
+
+    ReactDOM.render(element, mountPoint)
+  </script>
+</body>
