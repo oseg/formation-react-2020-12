@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.scss";
 import BtnCounterList from "./BtnCounterList";
 import { v4 as uuid } from "uuid";

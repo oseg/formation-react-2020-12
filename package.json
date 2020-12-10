@@ -6,10 +6,13 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
+    "classnames": "^2.2.6",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
     "react-scripts": "4.0.1",
+    "redux": "^4.0.5",
     "uuid": "^8.3.2",
     "web-vitals": "^0.2.4"
   },
@@ -17,7 +20,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "coucou": "echo coucou",
+    "precoucou": "echo avant coucou",
+    "postcoucou": "echo après coucou"
   },
   "eslintConfig": {
     "extends": [
@@ -25,7 +31,12 @@
       "react-app/jest"
     ],
     "rules": {
-      "react/jsx-key": ["error", { "checkFragmentShorthand": true }]
+      "react/jsx-key": [
+        "error",
+        {
+          "checkFragmentShorthand": true
+        }
+      ]
     }
   },
   "browserslist": {
