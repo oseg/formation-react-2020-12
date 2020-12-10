@@ -119,11 +119,22 @@ https://editorconfig.org/
 
 ### ESLint
 
-`.eslintrc.json` :
+`package.json` :
 
 ```json
 {
-  "extends": "react-app"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {
+      "react/jsx-key": [
+        "error",
+        { "checkFragmentShorthand": true }
+      ]
+    }
+  }
 }
 ```
 

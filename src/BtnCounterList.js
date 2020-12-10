@@ -1,17 +1,17 @@
 import Counter from "./Counter";
 
-const BtnCounterList = () => (
-  <ul>
-    <li>
-      <Counter />
-    </li>
-    <li>
-      <Counter />
-    </li>
-    <li>
-      <Counter />
-    </li>
-  </ul>
-);
+const BtnCounterList = ({ counterIds }) => {
+  return (
+    <ul>
+      {counterIds.map((counter) => {
+        return (
+          <li key={counter}>
+            <Counter />
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
 
 export default BtnCounterList;
