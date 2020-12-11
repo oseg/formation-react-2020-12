@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./components/App/App";
 import "./index.css";
 import reportWebVitals from "./lib/reportWebVitals";
-import { combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import { Provider } from "react-redux";
 import { reducer as counterzReducer } from "./components/counterz/reducer";
 import { reducer as todozReducer } from "./components/todoz/reducer";
@@ -22,11 +22,15 @@ const reducer = (state = initialState, action) => {
 }
 */
 
+const middlewares = []; // TODO middlewares
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   combineReducers({
     todoz: todozReducer,
     counterz: counterzReducer,
-  })
+  }),
+  composeEnhancers(applyMiddleware(...middlewares))
 );
 
 // window.store = store;
