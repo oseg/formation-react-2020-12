@@ -36,3 +36,24 @@ test("Simple snapshot", () => {
   const { container } = render(<Simple />);
   expect(container).toMatchSnapshot();
 });
+
+const add = (a, b) => a + b;
+
+const foo = (callback) => setTimeout(callback, 5);
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+test("spies", async () => {
+  const spy = jest.fn(add);
+  const value = spy(1, 2);
+  expect(value).toEqual(3);
+  expect(spy).toHaveBeenCalledTimes(1);
+  expect(spy).toHaveBeenCalledWith(1, 2);
+  expect(spy).toHaveReturnedWith(3);
+
+  const cb = jest.fn();
+  foo(cb);
+  expect(cb).not.toHaveBeenCalled();
+  await delay(10);
+  expect(cb).toHaveBeenCalled();
+});

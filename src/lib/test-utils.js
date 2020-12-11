@@ -4,7 +4,7 @@ import { applyMiddleware, createStore } from "redux";
 import { middlewares } from "./middlewares";
 import { reducer } from "./reducer";
 
-export const renderWithStore = (element) => {
-  const store = createStore(reducer, applyMiddleware(...middlewares));
+export const renderWithStore = (element, state = undefined) => {
+  const store = createStore(reducer, state, applyMiddleware(...middlewares));
   return render(<Provider store={store}>{element}</Provider>);
 };
