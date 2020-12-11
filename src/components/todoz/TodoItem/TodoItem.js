@@ -61,8 +61,9 @@ const TodoItem = ({ label, tagLabels, done = false }) => {
       <div className={cx("card-body row", { "text-muted": done })}>
         <div className="col col-auto text-left">
           <button type="button" className="btn btn-ghost">
-            {done && <IconSquare checked />}
-            {!done && <IconSquare />}
+            {/* TODO dispatch toggle */}
+            {done && <IconSquare />}
+            {!done && <IconSquare checked />}
           </button>
         </div>
         <div className="col">
@@ -72,8 +73,8 @@ const TodoItem = ({ label, tagLabels, done = false }) => {
             {done ? "done" : "todo"}
           </span>
         </div>
-        <div class="col col-auto text-right">
-          <button type="button" class="btn btn-danger">
+        <div className="col col-auto text-right">
+          <button type="button" className="btn btn-danger">
             <IconTrash />
           </button>
         </div>

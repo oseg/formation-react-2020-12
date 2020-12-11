@@ -7,16 +7,20 @@ import TodoItem from "../TodoItem/TodoItem";
 
 const TodoList = () => {
   const tasks = useSelector((state) => state.todoz.tasks);
+  const showDone = useSelector((state) => state.todoz.showDone);
+
   return (
     <>
-      {tasks.map(({ label, tagLabels, done }) => {
+      {tasks.map(({ label, tagLabels, done, id }) => {
         return (
-          <TodoItem
-            key={label}
-            label={label}
-            tagLabels={tagLabels}
-            done={done}
-          />
+          (showDone || !done) && (
+            <TodoItem
+              key={id}
+              label={label}
+              tagLabels={tagLabels}
+              done={done}
+            />
+          )
         );
       })}
     </>

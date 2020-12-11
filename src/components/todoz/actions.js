@@ -13,3 +13,12 @@ export const addTodo: ActionCreator<TodozAddPayload> = (
     tagLabels,
   },
 });
+
+export const toggleShowDone: ActionCreator<undefined> = () => ({
+  type: "TODOZ_TOGGLE_SHOWDONE",
+});
+
+export const toggleTask = (id) => ({
+  type: "TODOZ_TOGGLE_TASK",
+  payload: { id },
+});

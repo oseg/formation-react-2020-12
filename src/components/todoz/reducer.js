@@ -1,22 +1,32 @@
 import type { TodozAddPayload } from "./actions";
+import { v4 as uuid } from "uuid";
 
 type State = {
   tasks: Array<{
+    id: string,
     label: string,
     done: boolean,
     tagLabels: Array<string>,
   }>,
+  showDone: boolean,
 };
 
 export const initialState: State = {
   tasks: [
-    { label: "Coucou", done: false, tagLabels: ["politesse"] },
-    { label: "Hello", done: true, tagLabels: ["english"] },
+    { label: "Coucou", done: false, tagLabels: ["politesse"], id: uuid() },
+    { label: "Hello", done: true, tagLabels: ["english"], id: uuid() },
   ], // Array<{ label: string, done: boolean, tagLabels: Array<string> }>
+  showDone: true,
 };
 
 export const reducer = (state: State = initialState, action: Action<any>) => {
   switch (action.type) {
+    case "TODOZ_TOGGLE_SHOWDONE": {
+      return {
+        ...state,
+        showDone: !state.showDone,
+      };
+    }
     case "TODOZ_ADD": {
       // immutable.js
       const payload: TodozAddPayload = action.payload;
@@ -25,11 +35,28 @@ export const reducer = (state: State = initialState, action: Action<any>) => {
         tasks: [
           ...state.tasks,
           {
+            id: uuid(),
             label: payload.label,
             tagLabels: payload.tagLabels,
             done: false,
           },
         ],
+      };
+    }
+    case "TODOZ_TOGGLE_TASK": {
+      return {
+        ...state,
+        tasks: state.tasks.map((task) =>
+          task.id === action.payload.id ? { ...task, done: !task.done } : task
+        ),
+      };
+    }
+    // TODO filter by text
+    // TODO delete
+    case "TODOZ_DELETE_TASK": {
+      return {
+        ...state,
+        tasks: state.tasks.filter((task) => task.id !== action.payload.id),
       };
     }
     default:
