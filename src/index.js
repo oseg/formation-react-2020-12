@@ -3,11 +3,10 @@ import ReactDOM from "react-dom";
 import App from "./components/App/App";
 import "./index.css";
 import reportWebVitals from "./lib/reportWebVitals";
-import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+import { applyMiddleware, compose, createStore } from "redux";
 import { Provider } from "react-redux";
-import { reducer as counterzReducer } from "./components/counterz/reducer";
-import { reducer as todozReducer } from "./components/todoz/reducer";
 import { middlewares } from "./lib/middlewares";
+import { reducer } from "./lib/reducer";
 
 /*
 const initialState = {
@@ -26,10 +25,7 @@ const reducer = (state = initialState, action) => {
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  combineReducers({
-    todoz: todozReducer,
-    counterz: counterzReducer,
-  }),
+  reducer,
   composeEnhancers(applyMiddleware(...middlewares))
 );
 
