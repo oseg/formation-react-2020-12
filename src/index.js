@@ -7,6 +7,7 @@ import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import { Provider } from "react-redux";
 import { reducer as counterzReducer } from "./components/counterz/reducer";
 import { reducer as todozReducer } from "./components/todoz/reducer";
+import { middlewares } from "./lib/middlewares";
 
 /*
 const initialState = {
@@ -22,7 +23,6 @@ const reducer = (state = initialState, action) => {
 }
 */
 
-const middlewares = []; // TODO middlewares
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(

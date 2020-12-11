@@ -1,7 +1,8 @@
 import type { TodozAddPayload } from "./actions";
-import { v4 as uuid } from "uuid";
 
 type State = {
+  loading: boolean,
+  error: ?string,
   tasks: Array<{
     id: string,
     label: string,
@@ -12,15 +13,21 @@ type State = {
 };
 
 export const initialState: State = {
-  tasks: [
-    { label: "Coucou", done: false, tagLabels: ["politesse"], id: uuid() },
-    { label: "Hello", done: true, tagLabels: ["english"], id: uuid() },
-  ], // Array<{ label: string, done: boolean, tagLabels: Array<string> }>
+  loading: false,
+  error: null,
+  tasks: [],
   showDone: true,
 };
 
 export const reducer = (state: State = initialState, action: Action<any>) => {
   switch (action.type) {
+    case "TODOZ_FETCH_START":
+      return { ...initialState, loading: true };
+    case "TODOZ_FETCH_ERROR":
+      return { ...initialState, loading: false, error: action.payload.message };
+    case "TODOZ_FETCH_SUCCESS":
+      return { ...initialState, loading: false, tasks: action.payload.tasks };
+
     case "TODOZ_TOGGLE_SHOWDONE": {
       return {
         ...state,
@@ -35,7 +42,7 @@ export const reducer = (state: State = initialState, action: Action<any>) => {
         tasks: [
           ...state.tasks,
           {
-            id: uuid(),
+            id: payload.id,
             label: payload.label,
             tagLabels: payload.tagLabels,
             done: false,
