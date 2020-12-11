@@ -2,22 +2,20 @@ import React, { memo } from "react";
 import Header from "../nav/Header/Header";
 import MainContent from "../MainContent/MainContent";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import NavItemBadgeCounterz from "../nav/NavItem/NavItemBadgeCounterz";
 
 const App = () => {
   const [currentPageId, setCurrentPageId] = useState("home");
 
-  const counterzBadge = useSelector((state) => String(state.labels.length));
-
-  const navItems = [
+  const [navItems] = useState(() => [
     { label: "Home", pageId: "home" },
     {
       label: "Counterz",
       pageId: "counterz",
-      badgeLabel: counterzBadge,
+      badgeLabel: <NavItemBadgeCounterz />,
     },
     { label: "Todoz", pageId: "todoz", badgeLabel: "2/4" },
-  ];
+  ]);
 
   return (
     <>
