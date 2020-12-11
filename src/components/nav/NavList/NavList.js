@@ -9,7 +9,7 @@ const NavList = ({ items = [], currentPageId, onClickNavItem }) => {
       badgeLabel={badgeLabel}
       pageId={pageId}
       label={label}
-      onClick={() => onClickNavItem(pageId)}
+      onClick={onClickNavItem}
     />
   );
 

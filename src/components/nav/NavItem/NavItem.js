@@ -10,7 +10,7 @@ const NavItem = ({
 }) => {
   const handleClick = (e) => {
     e.preventDefault();
-    onClick();
+    onClick(pageId);
   };
 
   return (
