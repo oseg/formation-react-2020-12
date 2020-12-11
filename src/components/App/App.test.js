@@ -2,16 +2,19 @@ import { screen } from "@testing-library/react";
 import { renderWithStore } from "../../lib/test-utils";
 import App from "./App";
 
-// TODO How to mock local module
+// Mock API for faster tests (still not so fast)
 jest.mock("../../lib/api.js", () => ({
-  fetchTasks: async () => [
-    {
-      id: "test-task",
-      label: "fake task",
-      tagLabels: ["test", "fake"],
-      done: false,
-    },
-  ],
+  fetchTasks: async () => {
+    console.log("mocked fetchTasks");
+    return [
+      {
+        id: "test-task",
+        label: "fake task",
+        tagLabels: ["test", "fake"],
+        done: false,
+      },
+    ];
+  },
 }));
 
 test("renders learn react link", () => {

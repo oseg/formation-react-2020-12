@@ -15,6 +15,7 @@ const foo = () => {
 import { v4 as uuid } from "uuid";
 
 export const fetchTasks = async () => {
+  console.log("real fetchTasks");
   await delay(4000);
   const json = localStorage.getItem("todoz") || "[]";
   return JSON.parse(json);
