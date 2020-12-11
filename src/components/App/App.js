@@ -5,7 +5,7 @@ import { useState } from "react";
 import NavItemBadgeCounterz from "../nav/NavItem/NavItemBadgeCounterz";
 
 const App = () => {
-  const [currentPageId, setCurrentPageId] = useState("home");
+  const [currentPageId, setCurrentPageId] = useState("todoz");
 
   const [navItems] = useState(() => [
     { label: "Home", pageId: "home" },

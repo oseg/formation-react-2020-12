@@ -1,6 +1,6 @@
 import PageHome from "../PageHome/PageHome";
 import PageCounterz from "../counterz/PageCounterz/PageCounterz";
-import PageTodoz from "../PageTodoz/PageTodoz";
+import PageTodoz from "../todoz/PageTodoz/PageTodoz";
 import { memo } from "react";
 
 /**

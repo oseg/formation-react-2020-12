@@ -32,7 +32,7 @@ const select = (state) => {
 */
 
 const CounterList = () => {
-  const labels = useSelector((state) => state.labels);
+  const labels = useSelector((state) => state.counterz.labels);
 
   return (
     <ul className="list-unstyled">
