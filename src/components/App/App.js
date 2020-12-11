@@ -1,17 +1,20 @@
 import React from "react";
-import Header from "../Header/Header";
+import Header from "../nav/Header/Header";
 import MainContent from "../MainContent/MainContent";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const App = () => {
   const [currentPageId, setCurrentPageId] = useState("home");
+
+  const counterzBadge = useSelector((state) => String(state.labels.length));
 
   const navItems = [
     { label: "Home", pageId: "home" },
     {
       label: "Counterz",
       pageId: "counterz",
-      badgeLabel: "3",
+      badgeLabel: counterzBadge,
     },
     { label: "Todoz", pageId: "todoz", badgeLabel: "2/4" },
   ];

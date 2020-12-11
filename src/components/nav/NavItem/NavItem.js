@@ -3,7 +3,7 @@ import cx from "classnames";
 const NavItem = ({
   label,
   pageId,
-  badgeLabel = "",
+  badgeLabel = "", // string or Element
   active = false,
   onClick,
 }) => {
