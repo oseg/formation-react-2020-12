@@ -3,6 +3,7 @@ import Header from "../nav/Header/Header";
 import MainContent from "../MainContent/MainContent";
 import { useState } from "react";
 import NavItemBadgeCounterz from "../nav/NavItem/NavItemBadgeCounterz";
+import NavItemBadgeTodoz from "../nav/NavItem/NavItemBadgeTodoz";
 
 const App = () => {
   const [currentPageId, setCurrentPageId] = useState("todoz");
@@ -14,7 +15,7 @@ const App = () => {
       pageId: "counterz",
       badgeLabel: <NavItemBadgeCounterz />,
     },
-    { label: "Todoz", pageId: "todoz", badgeLabel: "2/4" },
+    { label: "Todoz", pageId: "todoz", badgeLabel: <NavItemBadgeTodoz /> },
   ]);
 
   return (
