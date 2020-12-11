@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 const IconPlus = () => (
   <svg
     width="1em"
@@ -14,4 +16,4 @@ const IconPlus = () => (
   </svg>
 );
 
-export default IconPlus;
+export default memo(IconPlus);

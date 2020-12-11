@@ -1,4 +1,5 @@
 import cx from "classnames";
+import { memo } from "react";
 
 const NavItem = ({
   label,
@@ -27,4 +28,4 @@ const NavItem = ({
   );
 };
 
-export default NavItem;
+export default memo(NavItem);

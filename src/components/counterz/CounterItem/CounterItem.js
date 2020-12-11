@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { v4 as uuid } from "uuid";
 
 const generateUniqueId = () => {
@@ -40,4 +40,4 @@ const CounterItem = ({ label }) => {
   );
 };
 
-export default CounterItem;
+export default memo(CounterItem);

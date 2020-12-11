@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import CounterAdd from "../CounterAdd/CounterAdd";
 import CounterList from "../CounterList/CounterList";
 
@@ -36,4 +36,4 @@ const PageCounterz = () => {
   );
 };
 
-export default PageCounterz;
+export default memo(PageCounterz);

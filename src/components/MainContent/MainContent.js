@@ -1,6 +1,7 @@
 import PageHome from "../PageHome/PageHome";
 import PageCounterz from "../counterz/PageCounterz/PageCounterz";
 import PageTodoz from "../PageTodoz/PageTodoz";
+import { memo } from "react";
 
 /**
  * counterzProps : { onAddCounter: function, labels: string[] }
@@ -13,4 +14,4 @@ const MainContent = ({ currentPageId }) => (
   </>
 );
 
-export default MainContent;
+export default memo(MainContent);

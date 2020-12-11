@@ -1,5 +1,6 @@
 import CounterItem from "../CounterItem/CounterItem";
 import { useSelector } from "react-redux";
+import { memo } from "react";
 
 /*
 import { useEffect, useState } from "react";
@@ -46,4 +47,4 @@ const CounterList = () => {
   );
 };
 
-export default CounterList;
+export default memo(CounterList);

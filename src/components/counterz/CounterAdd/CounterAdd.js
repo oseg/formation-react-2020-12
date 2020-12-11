@@ -1,6 +1,7 @@
 import { addCounter } from "../actions";
 import IconPlus from "../../icons/IconPlus";
 import { useDispatch } from "react-redux";
+import { memo } from "react";
 
 const CounterAdd = () => {
   const dispatch = useDispatch();
@@ -23,4 +24,4 @@ const CounterAdd = () => {
   );
 };
 
-export default CounterAdd;
+export default memo(CounterAdd);

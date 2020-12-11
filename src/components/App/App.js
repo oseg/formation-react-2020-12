@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Header from "../nav/Header/Header";
 import MainContent from "../MainContent/MainContent";
 import { useState } from "react";
@@ -31,4 +31,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default memo(App);

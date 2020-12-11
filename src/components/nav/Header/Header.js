@@ -1,3 +1,4 @@
+import { memo } from "react";
 import NavList from "../NavList/NavList";
 
 const Header = ({ navItems = [], currentPageId, onClickNavItem }) => {
@@ -15,4 +16,4 @@ const Header = ({ navItems = [], currentPageId, onClickNavItem }) => {
   );
 };
 
-export default Header;
+export default memo(Header);

@@ -1,6 +1,6 @@
-import { Component } from "react";
+import { /* Component, */ PureComponent } from "react";
 
-class PageHome extends Component {
+class PageHome extends PureComponent {
   state = { value: 0 };
 
   componentDidMount() {
