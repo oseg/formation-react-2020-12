@@ -128,3 +128,5 @@ yarn-debug.log*
 yarn-error.log*
 
 docs/LINKS.md
+
+*.code-workspace

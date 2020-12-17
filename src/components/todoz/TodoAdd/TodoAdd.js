@@ -2,6 +2,7 @@
 import { memo } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../actions";
+import { v4 as uuid } from "uuid";
 
 const TodoAdd = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const TodoAdd = () => {
         (a) => a[1]
       );
       const label = e.target.value.replace(/(^| )#[^\s]+( |$)/g, " ");
-      dispatch(addTodo(label, tagLabels));
+      dispatch(addTodo(uuid(), label, tagLabels));
     }
   };
 

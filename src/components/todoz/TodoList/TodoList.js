@@ -15,10 +15,11 @@ const TodoList = () => {
         return (
           (showDone || !done) && (
             <TodoItem
-              key={id}
+              id={id}
               label={label}
               tagLabels={tagLabels}
               done={done}
+              key={id}
             />
           )
         );

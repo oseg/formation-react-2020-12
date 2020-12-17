@@ -43,6 +43,9 @@ import IconTrash from "../../icons/IconTrash";
 import IconSquare from "../../icons/IconSquare";
 import cx from "classnames";
 
+import { useDispatch } from "react-redux";
+import { toggleTask } from "../actions";
+
 import "./TodoItem.scss";
 
 const renderTags = (tagLabels) => {
@@ -55,12 +58,19 @@ const renderTags = (tagLabels) => {
   });
 };
 
-const TodoItem = ({ label, tagLabels, done = false }) => {
+const TodoItem = ({ id, label, tagLabels, done = false }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(toggleTask(id));
+  };
+
   return (
     <div className={cx("card my-2 container TodoItem", { done })}>
       <div className={cx("card-body row", { "text-muted": done })}>
         <div className="col col-auto text-left">
-          <button type="button" className="btn btn-ghost">
+          <button type="button" onClick={handleClick} className="btn btn-ghost">
             {/* TODO dispatch toggle */}
             {done && <IconSquare />}
             {!done && <IconSquare checked />}
