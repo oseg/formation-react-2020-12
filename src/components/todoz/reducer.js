@@ -58,8 +58,13 @@ export const reducer = (state: State = initialState, action: Action<any>) => {
         ),
       };
     }
+    case "TODOZ_SUPPR_TASK": {
+      return {
+        ...state,
+        tasks: state.tasks.filter((task) => task.id !== action.payload.id),
+      };
+    }
     // TODO filter by text
-    // TODO delete
     case "TODOZ_DELETE_TASK": {
       return {
         ...state,

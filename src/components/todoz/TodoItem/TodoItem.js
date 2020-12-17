@@ -44,7 +44,7 @@ import IconSquare from "../../icons/IconSquare";
 import cx from "classnames";
 
 import { useDispatch } from "react-redux";
-import { toggleTask } from "../actions";
+import { toggleTask, supprTask } from "../actions";
 
 import "./TodoItem.scss";
 
@@ -61,17 +61,21 @@ const renderTags = (tagLabels) => {
 const TodoItem = ({ id, label, tagLabels, done = false }) => {
   const dispatch = useDispatch();
 
-  const handleClick = (e) => {
+  const handleCheckClick = (e) => {
     e.preventDefault();
     dispatch(toggleTask(id));
+  };
+
+  const handleSupprClick = (e) => {
+    e.preventDefault();
+    dispatch(supprTask(id));
   };
 
   return (
     <div className={cx("card my-2 container TodoItem", { done })}>
       <div className={cx("card-body row", { "text-muted": done })}>
         <div className="col col-auto text-left">
-          <button type="button" onClick={handleClick} className="btn btn-ghost">
-            {/* TODO dispatch toggle */}
+          <button type="button" onClick={handleCheckClick} className="btn btn-ghost">
             {done && <IconSquare />}
             {!done && <IconSquare checked />}
           </button>
@@ -84,7 +88,7 @@ const TodoItem = ({ id, label, tagLabels, done = false }) => {
           </span>
         </div>
         <div className="col col-auto text-right">
-          <button type="button" className="btn btn-danger">
+          <button type="button" onClick={handleSupprClick} className="btn btn-danger">
             <IconTrash />
           </button>
         </div>

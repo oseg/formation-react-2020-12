@@ -31,6 +31,11 @@ export const toggleTask = (id) => ({
   payload: { id },
 });
 
+export const supprTask = (id) => ({
+  type: "TODOZ_SUPPR_TASK",
+  payload: { id },
+});
+
 export const fetchTasks = () => ({
   type: "TODOZ_FETCH",
   async: true,
